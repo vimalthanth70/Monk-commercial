@@ -28,7 +28,7 @@ export const fetchData:any = createAsyncThunk('fetchAllProducts', async (url: st
         method:"GET",
         headers:{
           "Content-Type":"Application/json",
-          "x-api-key":"72njgfa948d9aS7gs5"
+          "x-api-key":import.meta.env.VITE_APP_KEY
         }
       });
       const data:any = await response.json()

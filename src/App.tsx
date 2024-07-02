@@ -12,7 +12,7 @@ function App() {
   const searchText = useSelector((state:RootState)=>state.products.searchText)
 
   useEffect(()=>{
-      dispatch(fetchData(`https://stageapi.monkcommerce.app/task/products/search?search=${searchText}&page=${pageNo}&limit=10`));
+      dispatch(fetchData(`${import.meta.env.VITE_APP_BASE_URL}/task/products/search?search=${searchText}&page=${pageNo}&limit=10`));
 
   },[pageNo])
   return (
