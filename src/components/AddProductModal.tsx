@@ -23,7 +23,6 @@ function AddProductDialogue() {
   const [tempProducts,setTempProducts] = useState<ProductType[]>(allSelectedProducts)
   const dispatch = useDispatch()
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  console.log(allSelectedProducts,tempProducts,'data29')
 
 
 const cache = new CellMeasurerCache({
@@ -65,7 +64,6 @@ const getSelectedProductcsText = ()=>{
 const isRowLoaded = ({ index }:{index:number}) => !!products[index];
 
     const loadMoreRows =({ startIndex, stopIndex }:any) => {
-      console.log(stopIndex,products.length ,"data206")
       if(stopIndex === products.length ){
         dispatch(incrementPage())
       }
@@ -148,7 +146,6 @@ const rowRenderer = ({key,index,style,parent}:any)=>{
             }else{
               if(e.target.checked){
                 const mainProduct = {...item}
-                console.log(mainProduct)
                 const newVariant:Variant = {...variant,isDiscount:false, discountType:"% off", discountValue:0}
                 const newProduct:ProductType = {...mainProduct,variants:[newVariant],isDiscount:false, discountType:"% off", discountValue:0,showVariants:false}
                 const allProducts:ProductType[] = [...tempProducts,newProduct]

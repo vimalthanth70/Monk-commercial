@@ -44,7 +44,6 @@ export default function Products() {
                     const newIndex = productList.findIndex(item=>item.id==over.id)
                     dispatch(changeOrderOfProducts(arrayMove(productList,oldIndex,newIndex)))
                 }
-                console.log(productList,'data102')
             }}>
             <SortableContext strategy={verticalListSortingStrategy}  items={productList}>
                 {productList.length>0 && productList.map((product,index,arr)=>(

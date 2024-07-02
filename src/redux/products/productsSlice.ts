@@ -32,7 +32,6 @@ export const fetchData:any = createAsyncThunk('fetchAllProducts', async (url: st
         }
       });
       const data:any = await response.json()
-      console.log(data,'data31')
       return data;
     } catch (error:any) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -140,7 +139,6 @@ const productSlice = createSlice({
             state.error = null;
           })
           .addCase(fetchData.fulfilled, (state, action: PayloadAction<any>) => {
-            console.log(action,'data129')
             state.loading = false;
             if(action.payload){
                 state.allProducts = [...state.allProducts,...action.payload];
