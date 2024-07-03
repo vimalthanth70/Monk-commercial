@@ -1,4 +1,4 @@
-import { MainProductType, MainVariant, ProductType, Variant } from "./types/productsTypes";
+import { MainProductType, ProductType, Variant } from "./types/productsTypes";
 
 export const addDefaultValues = (product:MainProductType):ProductType=>{
     let newProduct:ProductType = {...product,isDiscount:false,discountType:"% off",discountValue:0,showVariants:false,variants:[]}

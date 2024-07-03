@@ -1,6 +1,5 @@
-import { createSlice,PayloadAction, createAsyncThunk,AsyncThunkPayloadCreatorReturnValue } from "@reduxjs/toolkit";
-import { ProductType, Variant,MainProductType,MainVariant } from "../../types/productsTypes";
-import { addDefaultValues } from "../../utils";
+import { createSlice,PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { ProductType, Variant,MainProductType } from "../../types/productsTypes";
 
 type InitialValues = {
     selectedProoducts:ProductType[],

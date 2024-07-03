@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from './ui/button'
 
 export default function PrimaryButton({onClick,children,className,disabled}:{onClick:()=>void,children:string,className?:string,disabled:boolean}) {

@@ -31,7 +31,6 @@ const cache = new CellMeasurerCache({
 });
 
 const products = useSelector((state:RootState)=>state.products.allProducts)
-const pageNo = useSelector((state:RootState)=>state.products.pageNo)
 
 const isProductPresent = (product:MainProductType)=>{
   if(tempProducts.find(value=>value.id==product.id)){
@@ -63,10 +62,8 @@ const getSelectedProductcsText = ()=>{
 
 const isRowLoaded = ({ index }:{index:number}) => !!products[index];
 
-    const loadMoreRows =({ startIndex, stopIndex }:any) => {
-      if(stopIndex === products.length ){
-        dispatch(incrementPage())
-      }
+    const loadMoreRows =() => {
+      dispatch(incrementPage())
       return Promise.resolve()
     };
 
@@ -89,7 +86,7 @@ const rowRenderer = ({key,index,style,parent}:any)=>{
       columnIndex={0}
       rowIndex={index}
     >
-  {({ measure, registerChild }) => (
+  {() => (
     <div 
     // ref={registerChild}
      key={item.id} style={{...style,height:'50px'}} className="productItem">
@@ -184,7 +181,7 @@ const rowRenderer = ({key,index,style,parent}:any)=>{
             }}>
           {products && products.length>0 ? <AutoSizer>
             
-            {({ height, width }) => (
+            {({ width }) => (
                 <InfiniteLoader
                 isRowLoaded={isRowLoaded}
                 loadMoreRows={loadMoreRows}

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from './ui/button'
 
 export default function SecondaryButton({onClick,children}:{onClick:()=>void,children:string}) {
